@@ -20,9 +20,7 @@ class ViewController extends Controller
     {
         $cacheKey = 'carousels_data';
 
-        $carousels = Cache::remember($cacheKey, 604800, function () {
-            return Carousels::select('id', 'image')->get();
-        });
+        $carousels = Cache::remember($cacheKey, 604800, fn() => Carousels::select('id', 'image', 'type')->get());
 
         return view(user_agent() . '.home', compact('carousels'));
     }

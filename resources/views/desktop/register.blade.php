@@ -6,10 +6,10 @@
                 <div class="col-md-3">
                     <div class="promo-box">
                         <div class="text-center text-primary">
-                            <h4>{{ $data['title'] }}</h4>
+                            <h4>{{ $config_firebase['promo-box']['title'] }}</h4>
                         </div>
 
-                        @foreach ($data['items'] as $item)
+                        @foreach ($config_firebase['promo-box']['items'] as $item)
                             <ul class="fs-md">
                                 <li>
                                     <div class="s">
@@ -743,7 +743,7 @@
                                 },
 
                                 success: function(label, element) {
-                                    // Add the span element, if doesn't exists, and apply the icon classes to it. 
+                                    // Add the span element, if doesn't exists, and apply the icon classes to it.
                                     function addSuccessEleIcon(element) {
                                         if (!$(element).next("i")[0]) {
                                             $("<i class='icon-checkmark  form-control-feedback absolute'></i>")
