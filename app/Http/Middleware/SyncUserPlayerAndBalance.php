@@ -44,14 +44,14 @@ class SyncUserPlayerAndBalance
             $result = ApiTransactions::createUser($playerToken);
 
             if (($result['success'] ?? false) || ($result['message'] ?? '') === "The user code is duplicated.") {
-                $user->player_token = $playerToken;
+                $user->player_token = $result['data']['user_code'];
                 $user->save();
                 return true;
             }
 
             Log::warning("API createUser gagal (tapi tidak lempar exception)", [
                 'user_id'      => $user->id,
-                'player_token' => $playerToken,
+                'player_token' => $result['data']['user_code'],
                 'response'     => $result,
             ]);
 

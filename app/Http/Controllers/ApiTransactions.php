@@ -72,7 +72,7 @@ class ApiTransactions extends Controller
         $endpoint = '/user/register';
 
         return self::formatResponse(
-            self::sendRequest($endpoint, ['user_code' => $userCode, 'country' => "KH", 'currency' => 'USD'])
+            self::sendRequest($endpoint, ['user_code' => $userCode, 'country' => "ID", 'currency' => 'IDR'])
         );
     }
 
